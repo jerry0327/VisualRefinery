@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a reproducible problem with VisualRefinery or its installation.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve VisualRefinery. Please remove confidential or sensitive material before submitting.
+
+  - type: input
+    id: host
+    attributes:
+      label: Agent host / environment
+      description: Claude Code, Codex, Cursor, Copilot, another Agent Skills host, or plain instruction-file usage.
+      placeholder: e.g. Codex CLI
+    validations:
+      required: true
+
+  - type: input
+    id: install
+    attributes:
+      label: Installation method
+      placeholder: e.g. npx skills add jerry0327/VisualRefinery --skill visual-refinery
+    validations:
+      required: true
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Task / prompt
+      description: Provide the smallest realistic request that reproduces the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Relevant output or logs
+      description: Screenshots, validation output, or excerpts are useful. Remove private information.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: I checked the current README and relevant reference files.
+          required: true
+        - label: I removed private, confidential, or personally identifying information.
+          required: true

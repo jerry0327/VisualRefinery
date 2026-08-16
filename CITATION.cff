@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If VisualRefinery helps your work, please cite the project using the metadata below."
+title: "VisualRefinery: A publication-grade visual artifact workflow for AI agents"
+type: software
+authors:
+  - family-names: "Wang"
+    given-names: "Jerry"
+repository-code: "https://github.com/jerry0327/VisualRefinery"
+url: "https://github.com/jerry0327/VisualRefinery"
+license: MIT
+version: 0.1.0
+date-released: 2026-08-16
+keywords:
+  - agent skills
+  - information design
+  - visual design
+  - presentations
+  - reports
+  - publication
+  - visual QA
+abstract: >-
+  VisualRefinery is a domain-agnostic Agent Skill and production workflow for
+  transforming raw source material into polished, evidence-grounded visual
+  artifacts through research, editorial synthesis, information architecture,
+  visual design, full-page inspection, and technical validation.

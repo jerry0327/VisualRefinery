@@ -1,0 +1,58 @@
+name: Feature request
+description: Propose a new workflow, domain profile, artifact branch, QA rule, or compatibility improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        VisualRefinery aims to stay compact and domain-agnostic. Strong proposals explain both the user need and where the change belongs.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What real user task or failure mode is not handled well today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Describe the behavior, not only the wording you want added.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Best location
+      options:
+        - Core SKILL.md
+        - Artifact-specific reference
+        - Domain profile
+        - Visual-design reference
+        - QA / validation
+        - Eval / example
+        - Agent-host compatibility
+        - Repository infrastructure
+        - Unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example user request
+      description: Provide a realistic prompt that should benefit from the change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: What would success look like?
+      description: State observable behavior or quality improvements.
+    validations:
+      required: true

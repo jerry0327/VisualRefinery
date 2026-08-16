@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage and support guide
+    url: https://github.com/jerry0327/VisualRefinery/blob/main/SUPPORT.md
+    about: Read setup, troubleshooting, and reporting guidance before opening an issue.
+  - name: Security policy
+    url: https://github.com/jerry0327/VisualRefinery/blob/main/SECURITY.md
+    about: Use the security guidance for sensitive reports instead of a public issue.
