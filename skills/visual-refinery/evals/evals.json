@@ -1,0 +1,61 @@
+{
+  "skill_name": "visual-refinery",
+  "evals": [
+    {
+      "id": 1,
+      "name": "executive-strategy-deck",
+      "prompt": "Turn the attached market analysis and operating metrics into a 10-slide executive strategy deck. The audience needs to decide which of three expansion options to fund next quarter. Keep the analysis evidence-grounded and make the trade-offs visually obvious.",
+      "expected_output": "A decision-oriented deck architecture with conclusion-led slides, explicit comparison criteria, evidence traceability, readable charts or tables, and full-slide QA before delivery.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "academic-research-poster",
+      "prompt": "Convert this manuscript into a conference poster for researchers outside my subfield. Preserve the uncertainty and study limitations, but make the primary result understandable in under a minute.",
+      "expected_output": "A research poster that prioritizes the question, methods, primary result, uncertainty, and limitations without turning the manuscript into tiny text blocks.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "technical-system-explainer",
+      "prompt": "Make a polished one-page visual explainer of this distributed system architecture for new engineers. Show the request path, data stores, failure boundaries, and what happens when the primary region is unavailable.",
+      "expected_output": "A layered technical explainer with clear system boundaries, data/request flow, failure-mode visibility, restrained visual hierarchy, and no irrelevant business or medical framing.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "training-handbook",
+      "prompt": "Turn these 30 pages of onboarding notes into a visual field handbook for staff who need to look things up during work rather than read from beginning to end.",
+      "expected_output": "A retrieval-oriented handbook using task-based navigation, checklists, quick-reference tables, consistent terminology, and a design optimized for lookup rather than linear prose.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "travel-comparison-report",
+      "prompt": "Compare these two group itineraries and create a client-facing PDF that makes the practical differences clear: hotels, transfer burden, walking, meals, attraction depth, included value, and realistic downsides.",
+      "expected_output": "A travel comparison that combines official facts with clearly bounded practical interpretation, uses real subject-specific visuals where available, and does not invent hotel assignments, prices, or inclusions.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "clinical-teaching-deck",
+      "prompt": "Create a 20-slide clinical teaching deck from these guidelines and studies. The audience is time-pressured clinicians, so make decision thresholds, timing, doses, contraindications, controversies, and the action sequence easy to see.",
+      "expected_output": "A clinically accurate, decision-oriented deck with current source verification, exact high-yield values, one dominant message per slide, de-identification, and full-slide visual QA.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "public-policy-one-pager",
+      "prompt": "Turn this new municipal policy into a one-page public explainer. Residents need to know who is affected, what changes, key dates, exceptions, and what action to take.",
+      "expected_output": "A plain-language one-pager with current policy details, dates, exceptions, action steps, accessible hierarchy, and no legal certainty beyond the source material.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "existing-deck-revision",
+      "prompt": "This deck is accurate but ugly. Improve the visual hierarchy and readability without changing its successful structure or dropping technical detail. Inspect the whole deck before deciding what to redesign.",
+      "expected_output": "A conservative revision workflow that preserves working structure, identifies local versus global defects, changes only what is necessary, and rechecks the complete artifact for regressions.",
+      "files": []
+    }
+  ]
+}

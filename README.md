@@ -1,19 +1,19 @@
 <div align="center">
 
-# VisualRefinery
+# ✦ VisualRefinery
 
 ### Turn raw information into publication-grade visual artifacts.
 
-**Research it. Refine it. Design it. Ship it.**
+**Research → Refine → Structure → Design → Inspect → Ship**
 
+[![Agent Skills](https://img.shields.io/badge/Agent_Skills-compatible-6f42c1)](https://agentskills.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-0.1.0-6f42c1.svg)
-![Domain](https://img.shields.io/badge/domain-agnostic-0969da.svg)
-![Focus](https://img.shields.io/badge/focus-research%20%7C%20editorial%20%7C%20visual%20QA-e85d04.svg)
+[![Version](https://img.shields.io/badge/version-0.1.0-0969da.svg)](CHANGELOG.md)
+[![CI](https://github.com/jerry0327/VisualRefinery/actions/workflows/validate.yml/badge.svg)](https://github.com/jerry0327/VisualRefinery/actions/workflows/validate.yml)
 
-VisualRefinery is an open, domain-agnostic workflow and agent skill for transforming messy source material into polished, evidence-grounded, visually coherent deliverables.
+**A domain-agnostic Agent Skill for turning messy source material into polished reports, decks, one-pagers, guides, posters, and other high-stakes visual deliverables.**
 
-It is not a slide template. It is not a prompt that says “make this prettier.” It is a production system for deciding **what matters, what is true, how it should be structured, how it should look, and whether the final artifact actually works at full-page scale.**
+[Quick start](#-quick-start) · [How it works](#-the-refinery-pipeline) · [What it can make](#-what-it-can-make) · [Skill structure](#-skill-structure) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -21,316 +21,313 @@ It is not a slide template. It is not a prompt that says “make this prettier.�
 
 ## Why VisualRefinery?
 
-Most AI artifact workflows optimize for one thing: **successful file generation**.
+Most AI artifact workflows stop when the file is generated.
 
-VisualRefinery optimizes for the finished work.
+VisualRefinery asks a harder question:
 
-A document can compile and still be poor. A deck can contain every requested fact and still be unreadable. A report can look polished while quietly mixing unsupported claims, stale information, decorative imagery, broken hierarchy, or clipped text.
+> **Would a careful human editor, designer, analyst, or subject-matter expert be willing to publish it?**
 
-VisualRefinery treats the artifact as a complete editorial product:
+A document can compile and still be weak. A deck can contain every requested fact and still be unreadable. A report can look polished while quietly mixing stale claims, decorative imagery, broken hierarchy, tiny type, clipped text, or unsupported conclusions.
+
+VisualRefinery treats visual output as a complete production discipline:
 
 ```mermaid
 flowchart LR
-    A[Raw information] --> B[Evidence & source map]
-    B --> C[Editorial synthesis]
-    C --> D[Information architecture]
+    A[Raw material] --> B[Evidence]
+    B --> C[Synthesis]
+    C --> D[Architecture]
     D --> E[Visual design]
     E --> F[Full-page QA]
-    F --> G[Publication-grade artifact]
+    F --> G[Publishable artifact]
 ```
 
-The core principle is simple:
-
-> **Design is the visible consequence of good judgment, not decoration applied after the fact.**
+**Design is the visible consequence of good judgment—not decoration applied after the fact.**
 
 ---
 
-## What it can produce
+## ⚡ Quick start
 
-VisualRefinery is intentionally not tied to one profession or output format. It can guide the creation or revision of:
+### Install with the Agent Skills CLI
 
-- analytical reports and decision briefs;
-- slide decks and conference presentations;
-- one-pagers and executive summaries;
-- research and academic communication;
-- technical explainers and architecture documents;
-- educational and training materials;
-- policy and public-information documents;
-- product and service comparisons;
-- visual guides, handbooks, and field references;
-- magazine-style PDFs and client-facing publications;
-- evidence-based clinical or scientific teaching artifacts;
-- travel, hospitality, and destination reports;
-- other high-stakes visual deliverables.
+```bash
+npx skills add jerry0327/VisualRefinery --skill visual-refinery
+```
 
-The subject changes. The quality system does not.
+Or browse before installing:
+
+```bash
+npx skills add jerry0327/VisualRefinery --list
+```
+
+### Install with GitHub CLI skill support
+
+```bash
+gh skill install jerry0327/VisualRefinery visual-refinery
+```
+
+### Manual use
+
+Copy [`skills/visual-refinery/`](skills/visual-refinery/) into your agent's skills directory, or give the agent access to [`SKILL.md`](skills/visual-refinery/SKILL.md) as project instructions.
+
+Then ask naturally:
+
+```text
+Use VisualRefinery to turn these research notes into a concise conference deck.
+Preserve uncertainty, cite load-bearing claims, use meaningful visuals, and
+inspect every rendered slide before delivery.
+```
+
+```text
+Use VisualRefinery to convert this folder of source material into a polished
+client-facing PDF. Choose the information architecture from the content rather
+than forcing it into a fixed template.
+```
+
+VisualRefinery is written to be **agent-agnostic**. The core skill follows the open `SKILL.md` pattern and can also be used as a plain instruction file in environments that do not provide native skill discovery.
 
 ---
 
-## The refinery pipeline
+## 🧭 The refinery pipeline
 
-VisualRefinery uses six connected stages.
+| Stage | Question | Output |
+|---|---|---|
+| **1. Evidence** | What is true, current, and supportable? | source map + claim ledger |
+| **2. Synthesis** | What does the evidence actually mean? | argument / explanation / decision logic |
+| **3. Architecture** | What sequence best serves the reader? | page / slide narrative |
+| **4. Design** | What visual form clarifies that message? | typography, imagery, charts, diagrams, layout |
+| **5. Inspection** | Does the rendered artifact work at full-page scale? | visual QA + corrections |
+| **6. Delivery** | Is the result editable, traceable, and technically sound? | final artifact + supporting records |
 
-### 1. Evidence
+The workflow is intentionally stricter than “make it pretty.” It is designed to prevent common failure modes such as evidence-free polish, card-wall layouts, gratuitous imagery, tiny text, silent factual drift, and claiming QA that never happened.
 
-Start with the source material, not the layout.
+---
 
-Identify the decision the artifact must support, map the available evidence, verify unstable facts, distinguish fact from inference, and preserve the limits of the underlying material.
+## 🧩 What it can make
 
-### 2. Synthesis
+VisualRefinery is not tied to one profession or format.
 
-Turn sources into an argument, explanation, or decision pathway.
+| Area | Example outputs |
+|---|---|
+| **Research & academia** | conference decks, literature briefs, posters, research summaries |
+| **Business & strategy** | executive briefs, decision memos, board decks, competitive analyses |
+| **Technical** | architecture explainers, system overviews, implementation guides |
+| **Education** | teaching decks, training modules, study guides, visual handbooks |
+| **Data & analytics** | narrative dashboards, chart-led reports, KPI readouts |
+| **Policy & public information** | public guides, policy briefs, explainer documents |
+| **Product & service** | comparisons, launch briefs, product explainers |
+| **Clinical & scientific** | evidence-based teaching materials and decision aids |
+| **Travel & hospitality** | destination reports, itinerary comparisons, hotel/service analysis |
+| **Creative / editorial** | magazine-style PDFs, visual essays, curated guides |
 
-Do not stack quotations, facts, reviews, or citations as disconnected fragments. Explain what they mean and why they matter.
-
-### 3. Editorial architecture
-
-Build a narrative rather than a pile of cards.
-
-Use conclusion-led headings, one dominant idea per page or slide, intentional sequencing, and a level of detail appropriate to the reader.
-
-### 4. Visual design
-
-Create hierarchy, not ornament.
-
-Typography, imagery, diagrams, tables, spacing, and color should clarify the content. Every visual element must earn its place.
-
-### 5. Full-page QA
-
-Render the actual artifact.
-
-Inspect every complete page or slide at readable scale. Check rhythm using a contact sheet. Re-render every corrected page. Automated layout checks are useful, but they do not replace visual inspection.
-
-### 6. Delivery
-
-Ship a recoverable, editable, verifiable result.
-
-Preserve source files where appropriate, keep citations and credits usable, and avoid overwriting the last known-good version before the revision passes QA.
+The subject changes. **The quality system does not.**
 
 ---
 
 ## What makes it different
 
-| Typical generation workflow | VisualRefinery |
+| Typical artifact generation | VisualRefinery |
 |---|---|
-| Starts from a template | Starts from the decision and evidence |
-| Treats sources as text to summarize | Builds a source map and resolves conflicts |
-| Fills slides with content | Assigns one dominant message per page |
-| Uses imagery as decoration | Requires each image to answer a reader question |
-| Accepts tiny type to fit content | Protects readability and restructures when needed |
+| Starts from a template | Starts from the reader's decision and evidence |
+| Summarizes sources | Maps claims, conflicts, uncertainty, and freshness |
+| Fills pages with content | Gives each page a dominant job |
+| Uses images as decoration | Requires visuals to answer a reader question |
+| Shrinks text until it fits | Restructures information to protect readability |
 | Checks whether the file opens | Checks whether the artifact communicates |
-| Relies on programmatic validation | Requires full-page visual inspection |
-| Optimizes for “generated” | Optimizes for “publishable” |
+| Relies on automated checks | Requires complete-page visual inspection |
+| Optimizes for “generated” | Optimizes for **publishable** |
 
 ---
 
-## Core quality gates
+## 🔍 Full-page QA is a first-class feature
 
-A VisualRefinery artifact is not finished until it passes these gates:
+VisualRefinery treats visual inspection as part of generation, not an optional afterthought.
 
-**Content integrity**  
-Claims are supported, changing facts are current, units and comparison conditions are explicit, and source-derived meaning has not been silently altered.
+A substantial artifact should be:
 
-**Editorial quality**  
-The artifact reads like coherent professional communication rather than assembled fragments or generic AI prose.
+1. rendered page by page;
+2. reviewed as a contact sheet for rhythm and consistency;
+3. inspected one complete page or slide at a time at readable scale;
+4. corrected where needed;
+5. re-rendered and re-inspected after changes;
+6. technically validated for clipping, glyphs, links, images, and file integrity.
 
-**Visual quality**  
-Hierarchy is clear; typography is readable; imagery is relevant; nothing is clipped, distorted, hidden, or unintentionally empty.
-
-**Full-page inspection**  
-Every page or slide is rendered and reviewed as a complete composition—not only as extracted text or cropped screenshots.
-
-**Technical validation**  
-Fonts, links, glyphs, images, page numbers, citations, and editable sources behave as intended.
-
-**Honest delivery**  
-No QA or verification step is claimed unless it was actually performed.
+Automated preflight checks are useful. **They do not replace looking at the actual page.**
 
 ---
 
-## Repository structure
+## 🏗 Skill structure
+
+VisualRefinery follows the self-contained Agent Skill pattern used by mature skill repositories:
 
 ```text
 VisualRefinery/
-├── SKILL.md                    # Domain-agnostic core workflow
-├── README.md                   # Project overview and usage
-├── profiles/                   # Optional domain adaptations
-│   ├── academic-research.md
-│   ├── business-strategy.md
-│   ├── education-training.md
-│   ├── medical-clinical.md
-│   └── travel-hospitality.md
-├── templates/                  # Reusable production records
-│   ├── claim-ledger.md
-│   ├── asset-manifest.md
-│   └── qa-log.md
+├── skills/
+│   └── visual-refinery/
+│       ├── SKILL.md
+│       ├── references/
+│       │   ├── artifact-branches.md
+│       │   ├── domain-profiles.md
+│       │   ├── visual-design.md
+│       │   └── qa-checklist.md
+│       ├── assets/
+│       │   └── templates/
+│       │       ├── claim-ledger.md
+│       │       ├── asset-manifest.md
+│       │       └── qa-log.md
+│       └── evals/
+│           └── evals.json
 ├── examples/
-│   └── README.md               # Example directions and contribution guide
+│   └── README.md
+├── scripts/
+│   └── validate_skill.py
+├── .github/workflows/
+│   └── validate.yml
+├── AGENTS.md
 ├── CONTRIBUTING.md
+├── SECURITY.md
 ├── CHANGELOG.md
 └── LICENSE
 ```
 
-The core skill deliberately avoids assuming a profession, audience, output format, or visual style. Domain profiles add specialized considerations without contaminating the general workflow.
+The core `SKILL.md` stays compact enough to load efficiently. Specialized rules live in `references/` and are loaded only when relevant.
 
 ---
 
-## Quick start
+## 🧠 Progressive disclosure
 
-### Use the core skill
+VisualRefinery deliberately separates universal behavior from optional detail.
 
-Give your agent access to [`SKILL.md`](SKILL.md) as project instructions, a reusable skill, or a workflow reference.
+### Core skill
 
-Then provide the source material and the deliverable you want, for example:
+[`skills/visual-refinery/SKILL.md`](skills/visual-refinery/SKILL.md) contains the workflow that should apply across domains:
 
-```text
-Use VisualRefinery to turn these research notes into a concise 12-slide
-conference presentation for a mixed technical audience. Preserve the
-important uncertainty, use native charts where possible, cite load-bearing
-claims, and perform full-slide visual QA before delivery.
-```
+- evidence before design;
+- reader-aware synthesis;
+- information architecture;
+- visual hierarchy;
+- meaningful imagery;
+- full-page inspection;
+- technical validation;
+- honest delivery.
 
-Or:
+### References
 
-```text
-Use VisualRefinery to convert this folder of source material into a polished
-client-facing PDF. Decide the clearest information architecture from the
-content instead of forcing it into a fixed template.
-```
+The agent reads supporting references only when needed:
 
-### Add a profile when useful
+- [`visual-design.md`](skills/visual-refinery/references/visual-design.md) — typography, layout, imagery, charts, color, accessibility;
+- [`artifact-branches.md`](skills/visual-refinery/references/artifact-branches.md) — slides, reports, one-pagers, posters, data-led artifacts;
+- [`domain-profiles.md`](skills/visual-refinery/references/domain-profiles.md) — optional considerations for research, business, education, technical, medical, travel, and other domains;
+- [`qa-checklist.md`](skills/visual-refinery/references/qa-checklist.md) — full-page and technical preflight.
 
-The files in [`profiles/`](profiles/) are overlays, not forks of the core workflow.
-
-For example, a clinical teaching deck can combine:
-
-```text
-SKILL.md
-+ profiles/medical-clinical.md
-```
-
-while a destination comparison can combine:
-
-```text
-SKILL.md
-+ profiles/travel-hospitality.md
-```
-
-If no profile fits, use the core skill by itself.
+This keeps the project broad without making every user pay the context cost of every domain.
 
 ---
 
-## Design philosophy
+## ✅ Quality gates
+
+A VisualRefinery artifact is not finished until the relevant gates pass.
+
+**Content integrity** — load-bearing claims are supported; unstable facts are checked; source meaning is preserved.
+
+**Editorial quality** — the artifact reads as a coherent piece of professional communication, not a stack of generated cards.
+
+**Visual quality** — hierarchy is clear; typography is readable; visuals are relevant; nothing is accidentally empty, distorted, clipped, or hidden.
+
+**Accessibility** — contrast, legibility, color dependence, reading order, and audience constraints are considered where relevant.
+
+**Full-page inspection** — complete rendered pages are reviewed, not only extracted text or cropped screenshots.
+
+**Technical validation** — links, glyphs, fonts, images, page numbers, citations, and editable sources behave as intended.
+
+**Honest delivery** — no verification step is claimed unless it was actually performed.
+
+---
+
+## 🧪 Evals and validation
+
+The repository includes:
+
+- realistic cross-domain prompts under [`evals/evals.json`](skills/visual-refinery/evals/evals.json);
+- a structural validator under [`scripts/validate_skill.py`](scripts/validate_skill.py);
+- GitHub Actions validation on pushes and pull requests.
+
+The initial eval set intentionally spans unrelated domains. A domain-agnostic skill should prove that it generalizes rather than merely restating one original use case.
+
+---
+
+## 🎨 Design philosophy
 
 ### Evidence before aesthetics
-
 A beautiful artifact with weak evidence is still weak.
 
 ### Editorial judgment before layout
-
 The page should reflect the argument. The argument should not be distorted to fit the page.
 
-### Real visuals before filler
-
-Prefer meaningful photographs, maps, diagrams, charts, screenshots, technical figures, or other subject-specific evidence over generic decoration.
+### Meaningful visuals before filler
+Prefer subject-specific photographs, diagrams, charts, maps, screenshots, or figures over generic decoration.
 
 ### Readability before density
-
-When a page does not fit, restructure the information. Do not solve an editorial problem by making the text tiny.
+When a page does not fit, restructure the information. Do not solve an editorial problem by making the type tiny.
 
 ### Inspection before approval
-
 If nobody has looked at the complete rendered page, it has not passed visual QA.
 
 ### General core, specialized edges
-
-The core remains reusable across disciplines. Domain-specific constraints belong in profiles.
-
----
-
-## Profiles
-
-The initial release includes optional guidance for several common contexts:
-
-- **Academic & Research** — evidence communication, methods, uncertainty, figures, citations.
-- **Business & Strategy** — decisions, trade-offs, KPI context, executive readability.
-- **Education & Training** — learning objectives, cognitive load, sequencing, retrieval cues.
-- **Medical & Clinical** — clinical thresholds, guideline currency, doses, contraindications, patient privacy.
-- **Travel & Hospitality** — itinerary burden, accessibility, realistic experience, pricing, service variability.
-
-Profiles should remain compact. If a rule is useful across domains, it belongs in the core instead.
-
----
-
-## Templates
-
-VisualRefinery includes lightweight templates for the invisible work behind a strong artifact:
-
-- [`claim-ledger.md`](templates/claim-ledger.md) — track load-bearing claims, sources, versions, and inference status;
-- [`asset-manifest.md`](templates/asset-manifest.md) — track images, figures, licenses, provenance, and usage;
-- [`qa-log.md`](templates/qa-log.md) — record page-level visual and technical checks.
-
-These are production aids. They do not need to appear in the finished client-facing artifact.
+Rules that are universal belong in the core. Domain-specific constraints belong in references.
 
 ---
 
 ## What VisualRefinery is not
 
-VisualRefinery is **not**:
+VisualRefinery is not:
 
-- a replacement for domain expertise;
 - a fixed visual theme;
 - a collection of decorative templates;
-- a guarantee that every source is correct;
-- an excuse to fabricate missing information;
-- a reason to expose private chain-of-thought or internal reasoning;
-- a substitute for human review when the consequences of error are high.
+- a replacement for domain expertise;
+- permission to fabricate missing facts or sources;
+- a guarantee that every input source is correct;
+- a reason to expose private chain-of-thought;
+- a substitute for qualified human review when consequences are high.
 
-It is a framework for making the research, editorial, design, and QA process more disciplined and reproducible.
+It is a reusable production framework for making **research, editorial judgment, visual design, and QA more disciplined and reproducible**.
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
-Visual communication differs across disciplines, cultures, accessibility needs, and publication environments. Contributions are welcome—especially:
+Contributions are welcome—especially:
 
-- new domain profiles;
-- better QA heuristics;
-- accessibility improvements;
-- example artifacts with source material;
-- reproducible visual-regression or layout checks;
-- guidance for charts, diagrams, maps, posters, and other artifact types;
-- integrations with different agent workflows.
+- new domain profiles that remain genuinely optional;
+- better visual QA heuristics;
+- accessibility guidance;
+- reproducible eval cases;
+- chart, map, poster, and diagram guidance;
+- before/after examples using redistributable source material;
+- integrations with additional Agent Skills hosts.
 
-Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 
 ## Roadmap
 
-Planned directions include:
-
-- reference examples with before/after comparisons;
-- accessibility and color-contrast guidance;
-- chart and data-visualization profile;
-- poster and one-page brief profile;
-- automated preflight checks that complement manual QA;
-- reusable test fixtures for clipping, overflow, bad contrast, and broken hierarchy;
-- interoperability examples for different agent environments.
+- [ ] public before/after example gallery
+- [ ] accessibility-focused eval set
+- [ ] data-visualization reference profile
+- [ ] poster and one-page brief examples
+- [ ] optional deterministic visual preflight scripts
+- [ ] richer cross-agent installation docs
+- [ ] community domain profiles
 
 ---
 
 ## License
 
-VisualRefinery is released under the [MIT License](LICENSE).
-
-Use it, adapt it, extend it, and contribute improvements back if you can.
-
----
+MIT. See [`LICENSE`](LICENSE).
 
 <div align="center">
 
-**Raw information is only the beginning.**
+### Raw information is only the beginning.
 
 **Refine the evidence. Refine the story. Refine the artifact.**
 

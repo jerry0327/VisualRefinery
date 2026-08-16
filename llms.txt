@@ -1,0 +1,33 @@
+# VisualRefinery
+
+> A domain-agnostic Agent Skill for transforming raw information into polished, evidence-grounded, publication-grade visual artifacts.
+
+## Primary skill
+
+- `skills/visual-refinery/SKILL.md` — core workflow and trigger definition.
+
+## References
+
+- `skills/visual-refinery/references/visual-design.md` — typography, layout, imagery, charts, color, accessibility.
+- `skills/visual-refinery/references/artifact-branches.md` — presentations, reports, one-pagers, posters, guides, technical and data-led artifacts.
+- `skills/visual-refinery/references/domain-profiles.md` — optional domain-specific overlays.
+- `skills/visual-refinery/references/qa-checklist.md` — full-page, technical, and delivery QA.
+
+## Templates
+
+- `skills/visual-refinery/assets/templates/claim-ledger.md`
+- `skills/visual-refinery/assets/templates/asset-manifest.md`
+- `skills/visual-refinery/assets/templates/qa-log.md`
+
+## Evaluation and validation
+
+- `skills/visual-refinery/evals/evals.json` — cross-domain evaluation prompts.
+- `scripts/validate_skill.py` — structural validator.
+
+## Human documentation
+
+- `README.md` — overview and installation.
+- `CONTRIBUTING.md` — contribution rules.
+- `AGENTS.md` — guidance for AI agents modifying this repository.
+- `SECURITY.md` — security policy.
+- `CHANGELOG.md` — release history.

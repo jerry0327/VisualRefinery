@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "visual-refinery",
+  "version": "0.1.0",
+  "description": "A domain-agnostic Agent Skill for turning raw information into polished, evidence-grounded, publication-grade visual artifacts.",
+  "author": {
+    "name": "jerry0327",
+    "url": "https://github.com/jerry0327"
+  },
+  "homepage": "https://github.com/jerry0327/VisualRefinery",
+  "repository": "https://github.com/jerry0327/VisualRefinery",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "visual-design",
+    "presentations",
+    "reports",
+    "pdf",
+    "information-design",
+    "editorial-design",
+    "visual-qa"
+  ]
+}
